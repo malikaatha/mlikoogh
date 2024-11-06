@@ -8,9 +8,9 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart),
-    ItemHomepage("Tambah Produk", Icons.add),
-    ItemHomepage("Logout", Icons.logout),
+    ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart_checkout, Color(0xFFB2DFDB)),
+    ItemHomepage("Tambah Produk", Icons.add, Color(0xFFCE93D8)),
+    ItemHomepage("Logout", Icons.logout, Color(0xFFBBDEFB)),
   ];
 
   @override
@@ -137,11 +137,10 @@ class ItemCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Material(
-      // Menentukan warna latar belakang dari tema aplikasi.
-      color: Theme.of(context).colorScheme.secondary,
-      // Membuat sudut kartu melengkung.
+      color: item.color, // Gunakan warna dari item
       borderRadius: BorderRadius.circular(12),
 
+      // Membuat sudut kartu melengkung.
       child: InkWell(
         // Aksi ketika kartu ditekan.
         onTap: () {
@@ -192,9 +191,11 @@ class ItemCard extends StatelessWidget {
   }
 }
 
+
 class ItemHomepage {
   final String name;
   final IconData icon;
+  final Color color; // Tambahkan parameter warna
 
-  ItemHomepage(this.name, this.icon);
-}
+  ItemHomepage(this.name, this.icon, this.color); // Modifikasi konstruktor
+  }
