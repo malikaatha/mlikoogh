@@ -1,8 +1,7 @@
 Malika Atha Indurasmi <br />
 2306275203 <br />
 PBP A <br />
-#### Link to PWS Deployment: 
-#### Link to Repository: 
+#### Link to Repository: https://github.com/malikaatha/mlikoogh.git
 
 
 # Tugas Individu
