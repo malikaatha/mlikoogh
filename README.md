@@ -45,10 +45,10 @@ cd lemari_lama
 2. Untuk membuat tiga tombol sederhana dengan ikon dan teks,saya mengimplementasikan code berikut di menu.dart
 ```
 final List<ItemHomepage> items = [
-  ItemHomepage("Lihat Daftar Produk", Icons.list),
-  ItemHomepage("Tambah Produk", Icons.add),
-  ItemHomepage("Logout", Icons.logout),
-];
+    ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart_checkout, Color(0xFFB2DFDB)),
+    ItemHomepage("Tambah Produk", Icons.add, Color(0xFFCE93D8)),
+    ItemHomepage("Logout", Icons.logout, Color(0xFFBBDEFB)),
+  ];
 ```
 
 3. Untuk mengimplementasikan warna-warna yang berbeda untuk setiap tombol (Lihat Daftar Produk, Tambah Produk, dan Logout).

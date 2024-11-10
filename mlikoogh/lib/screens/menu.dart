@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mlikoogh/widgets/left_drawer.dart';
+import 'package:mlikoogh/widgets/product_card.dart';
+
 
 class MyHomePage extends StatelessWidget {
   final String npm = '2306275203'; // NPM
@@ -8,9 +11,9 @@ class MyHomePage extends StatelessWidget {
   MyHomePage({super.key});
 
   final List<ItemHomepage> items = [
-    ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart_checkout, Color(0xFFB2DFDB)),
-    ItemHomepage("Tambah Produk", Icons.add, Color(0xFFCE93D8)),
-    ItemHomepage("Logout", Icons.logout, Color(0xFFBBDEFB)),
+    ItemHomepage("Lihat Daftar Produk", Icons.shopping_cart, Color.fromARGB(255, 255, 169, 63)),
+    ItemHomepage("Tambah Produk", Icons.add, Color.fromARGB(255, 252, 120, 80)),
+    ItemHomepage("Logout", Icons.logout, Color.fromARGB(255, 252, 87, 87)),
   ];
 
   @override
@@ -19,7 +22,7 @@ class MyHomePage extends StatelessWidget {
     return Scaffold(
       // AppBar adalah bagian atas halaman yang menampilkan judul.
       appBar: AppBar(
-        // Judul aplikasi "Mental Health Tracker" dengan teks putih dan tebal.
+        // Judul aplikasi "Mlikoogh" dengan teks putih dan tebal.
         title: const Text(
           'Mlikoogh',
           style: TextStyle(
@@ -29,7 +32,10 @@ class MyHomePage extends StatelessWidget {
         ),
         // Warna latar belakang AppBar diambil dari skema warna tema aplikasi.
         backgroundColor: Theme.of(context).colorScheme.primary,
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
+      drawer: const LeftDrawer(),
+
       // Body halaman dengan padding di sekelilingnya.
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -127,75 +133,3 @@ class InfoCard extends StatelessWidget {
   }
 }
 
-class ItemCard extends StatelessWidget {
-  // Menampilkan kartu dengan ikon dan nama.
-
-  final ItemHomepage item;
-
-  const ItemCard(this.item, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Material(
-      color: item.color, // Gunakan warna dari item
-      borderRadius: BorderRadius.circular(12),
-
-      // Membuat sudut kartu melengkung.
-      child: InkWell(
-        // Aksi ketika kartu ditekan.
-        onTap: () {
-          // Menampilkan pesan SnackBar saat kartu ditekan.
-          String message;
-          switch (item.name) {
-            case "Lihat Daftar Produk":
-              message = "Kamu telah menekan tombol Lihat Daftar Produk";
-              break;
-            case "Tambah Produk":
-              message = "Kamu telah menekan tombol Tambah Produk";
-              break;
-            case "Logout":
-              message = "Kamu telah menekan tombol Logout";
-              break;
-            default:
-              message = "Kamu telah menekan tombol ${item.name}";
-          }
-          ScaffoldMessenger.of(context)
-            ..hideCurrentSnackBar()
-            ..showSnackBar(SnackBar(content: Text(message)));
-        },
-        // Container untuk menyimpan Icon dan Text
-        child: Container(
-          padding: const EdgeInsets.all(8),
-          child: Center(
-            child: Column(
-              // Menyusun ikon dan teks di tengah kartu.
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Icon(
-                  item.icon,
-                  color: Colors.white,
-                  size: 30.0,
-                ),
-                const Padding(padding: EdgeInsets.all(3)),
-                Text(
-                  item.name,
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(color: Colors.white),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-
-class ItemHomepage {
-  final String name;
-  final IconData icon;
-  final Color color; // Tambahkan parameter warna
-
-  ItemHomepage(this.name, this.icon, this.color); // Modifikasi konstruktor
-  }
