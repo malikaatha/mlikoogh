@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:mlikoogh/screens/list_productentry.dart';
 import 'package:mlikoogh/screens/menu.dart';
 import 'package:mlikoogh/screens/productentry_form.dart';
-
-
 
 
 class LeftDrawer extends StatelessWidget {
@@ -20,7 +19,7 @@ class LeftDrawer extends StatelessWidget {
             child: const Column(
               children: [
               Text(
-                'Mental Health Tracker',
+                'Mlikoooogh NIh Bos',
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 24,
@@ -56,17 +55,29 @@ class LeftDrawer extends StatelessWidget {
             ),
             ListTile(
               leading: const Icon(Icons.shopping_cart),
-              title: const Text('Tambah Produk'),
+              title: const Text('Tambah Produk'), // TADINYA GUA DAFTAR_PRODUCT
               // Bagian redirection ke ProductEntryFormPage
               onTap: () {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => ProductEntryFormPage(),
+                    builder: (context) => const ProductEntryFormPage(),
                   ));
               },
             ),
-          
+            // Kode ListTile Menu
+            ListTile(
+                leading: const Icon(Icons.add_reaction_rounded),
+                title: const Text('Lihat Daftar Produk'),
+                onTap: () {
+                    // Route menu ke halaman produk
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const ProductEntryPage()),
+                    );
+                },
+            ),
+                      
         ],
       ),
     );
