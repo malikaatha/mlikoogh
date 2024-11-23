@@ -303,7 +303,7 @@ Instance **CookieRequest** perlu dibagikan ke seluruh komponen aplikasi untuk me
 2. Mengirimkan data ke endpoint Django `/auth/register/` menggunakan request POST.
 3. Memvalidasi response dari Django dan menampilkan pesan sukses atau error.
 
-### Halaman Login**
+### Halaman Login
 1. Membuat halaman **LoginPage** untuk menerima username dan password.
 2. Mengintegrasikan login dengan endpoint `/auth/login/` di Django menggunakan **CookieRequest**.
 3. Jika login sukses, menyimpan session cookie dan mengarahkan pengguna ke halaman utama.
